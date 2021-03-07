@@ -5,12 +5,12 @@ namespace WebFox.Controllers.PathTraversal
 {
     public class PathTraversalTest3 : ControllerBase
     {
-        static readonly string rootFolder = @"C:\Temp\Data\"; 
+        private const string RootFolder = @"C:\Temp\Data\"; 
         
         [HttpGet("{userInput}")]
-        static void Test(string userInput)    
+        public void Test(string userInput)    
         {
-            var reader = new StreamReader(rootFolder + userInput);
+            var reader = new StreamReader(RootFolder + userInput);
             reader.ReadToEnd();
         }
     }

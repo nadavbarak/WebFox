@@ -6,14 +6,14 @@ namespace WebFox.Controllers.PathTraversal
 {
     public class PathTraversalTest2 : ControllerBase
     {
-        static readonly string rootFolder = @"C:\Temp\Data\";    
-    
+        private const string RootFolder = @"C:\Temp\Data\";
+
         [HttpGet("{userInput}")]
-        static void Test(string userInput)    
+        public void Test(string userInput)    
         {    
             try
             {
-                var fullPath = Path.Combine(rootFolder, userInput);
+                var fullPath = Path.Combine(RootFolder, userInput);
                 System.IO.File.Delete(fullPath);
             }    
             catch (IOException ioExp)    
